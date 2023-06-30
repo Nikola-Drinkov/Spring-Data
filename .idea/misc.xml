@@ -1,5 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="ExternalStorageConfigurationManager" enabled="true" />
+  <component name="MavenProjectsManager">
+    <option name="originalFiles">
+      <list>
+        <option value="$PROJECT_DIR$/HibernateIntoExercise/pom.xml" />
+        <option value="$PROJECT_DIR$/../HibernateIntroExercise/untitled/pom.xml" />
+        <option value="$PROJECT_DIR$/../HibernateIntroExercise/pom.xml" />
+        <option value="$PROJECT_DIR$/HiberanteCodeFirstExercise/pom.xml" />
+        <option value="$PROJECT_DIR$/HibernateCodeFirstExercise/pom.xml" />
+        <option value="$PROJECT_DIR$/HibernateCodeFirst/pom.xml" />
+        <option value="$PROJECT_DIR$/HibernateCodeFirst_exercise/pom.xml" />
+        <option value="$PROJECT_DIR$/HibernateCodeFirstExercise/Gringotts/pom.xml" />
+        <option value="$PROJECT_DIR$/HibernateCodeFirstExercise/SalesDB/pom.xml" />
+        <option value="$PROJECT_DIR$/HibernateCodeFirstExercise/UniversitySystem/pom.xml" />
+        <option value="$PROJECT_DIR$/HibernateCodeFirstExercise/HospitalDatabase/pom.xml" />
+        <option value="$PROJECT_DIR$/HibernateCodeFirstExercise/BillsPaymentSystem/pom.xml" />
+      </list>
+    </option>
+    <option name="ignoredFiles">
+      <set>
+        <option value="$PROJECT_DIR$/../HibernateIntroExercise/HibernateIntroExercise/pom.xml" />
+        <option value="$PROJECT_DIR$/HiberanteCodeFirstExercise/pom.xml" />
+        <option value="$PROJECT_DIR$/HibernateCodeFirstExercise/pom.xml" />
+        <option value="$PROJECT_DIR$/HibernateCodeFirst_exercise/pom.xml" />
+        <option value="$PROJECT_DIR$/HibernateIntoExercise/pom.xml" />
+      </set>
+    </option>
+  </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_18" default="true" project-jdk-name="1.6" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/out" />
   </component>

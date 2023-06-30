@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="introtohibernate (3)" />
+        <module name="introtohibernate (4)" />
+        <module name="introtohibernate (1)" />
+        <module name="introtohibernate (2)" />
+        <module name="introtohibernate (5)" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="BillsPaymentSystem" target="18" />
+      <module name="Gringotts" target="18" />
+      <module name="HiberanteCodeFirstExercise" target="18" />
+      <module name="HibernateCodeFirst_exercise" target="18" />
+      <module name="HibernateCodeFirstExercise" target="18" />
+      <module name="HibernateIntoExercise" target="18" />
+      <module name="HibernateIntroExercise" target="18" />
+      <module name="HospitalDatabase" target="18" />
+      <module name="introtohibernate" target="1.8" />
+      <module name="SalesDB" target="18" />
+      <module name="UniversitySystem" target="18" />
+    </bytecodeTargetLevel>
+  </component>
+</project>
