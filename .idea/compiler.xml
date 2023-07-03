@@ -7,15 +7,18 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="introtohibernate (7)" />
+        <module name="introtohibernate (5)" />
+        <module name="introtohibernate (6)" />
         <module name="introtohibernate (3)" />
         <module name="introtohibernate (4)" />
         <module name="introtohibernate (1)" />
         <module name="introtohibernate (2)" />
-        <module name="introtohibernate (5)" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="BillsPaymentSystem" target="18" />
+      <module name="FootballBettingDB" target="18" />
       <module name="Gringotts" target="18" />
       <module name="HiberanteCodeFirstExercise" target="18" />
       <module name="HibernateCodeFirst_exercise" target="18" />
