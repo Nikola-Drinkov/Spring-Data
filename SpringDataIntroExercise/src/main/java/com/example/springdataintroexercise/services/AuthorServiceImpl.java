@@ -58,4 +58,10 @@ public class AuthorServiceImpl implements AuthorService {
         return authors;
     }
 
+    @Override
+    public Set<Author> getAuthorsWhoseFirstNameEndsWithString(String end) {
+        Set<Author> authors = this.authorRepository.findAllByFirstNameEndingWith(end);
+        authors.forEach(a-> System.out.println(a.getFirstName()+" "+a.getLastName()));
+        return authors;
+    }
 }

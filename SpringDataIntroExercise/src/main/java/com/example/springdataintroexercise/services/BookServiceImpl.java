@@ -1,10 +1,14 @@
 package com.example.springdataintroexercise.services;
 
 import com.example.springdataintroexercise.entitites.Book;
+import com.example.springdataintroexercise.enums.AgeRestriction;
+import com.example.springdataintroexercise.enums.EditionType;
 import com.example.springdataintroexercise.repositories.BookRepository;
 import org.springframework.stereotype.Service;
 
+import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.util.Arrays;
 import java.util.List;
 
 @Service
@@ -44,4 +48,61 @@ public class BookServiceImpl implements BookService {
         return books;
     }
 
+    @Override
+    public List<Book> getAllBooksByAgeRestriction(String ageRestriction) {
+        List<Book> books  = this.bookRepository.findAllByAgeRestriction(AgeRestriction.valueOf(ageRestriction.toUpperCase()));
+        books.forEach(b-> System.out.println(b.getTitle()));
+        return books;
+    }
+
+    @Override
+    public List<Book> getAllBooksByEditionTypeGoldAndLessThan5000Copies() {
+        List<Book> books = this.bookRepository.findAllByEditionTypeAndCopiesIsLessThan(EditionType.GOLD, 5000);
+        books.forEach(b-> System.out.println(b.getTitle()));
+        return books;
+    }
+
+    @Override
+    public List<Book> getAllBooksByPriceLessThan5OrPriceMoreThan40() {
+        List<Book> books = this.bookRepository.findAllByPriceIsLessThanOrPriceIsGreaterThan(BigDecimal.valueOf(5),BigDecimal.valueOf(40));
+        books.forEach(b-> System.out.printf("%s - $%s%n", b.getTitle(),b.getPrice()));
+        return books;
+    }
+
+    @Override
+    public List<Book> getAllBooksNotReleasedInYear(int year) {
+        List<Book> books = this.bookRepository.findBooksNotReleasedInYear(year);
+        books.forEach(b-> System.out.println(b.getTitle()));
+        return books;
+    }
+
+    @Override
+    public List<Book> getAllBooksBeforeDate(String date) {
+        int[] dateParts = Arrays.stream(date.split("-")).mapToInt(Integer::parseInt).toArray();
+        LocalDate localDate = LocalDate.of(dateParts[2],dateParts[1],dateParts[0]);
+        List<Book> books = this.bookRepository.findAllByReleaseDateBefore(localDate);
+        books.forEach(b-> System.out.printf("%s %s %s%n",b.getTitle(),b.getEditionType(),b.getPrice()));
+        return books;
+    }
+
+    @Override
+    public List<Book> getAllBooksContainingString(String containing) {
+        List<Book> books = this.bookRepository.findAllByTitleContaining(containing);
+        books.forEach(b-> System.out.println(b.getTitle()));
+        return books;
+    }
+
+    @Override
+    public List<Book> getAllBooksWithAuthorLastNameStartingWith(String start) {
+        List<Book> books = this.bookRepository.findAllByAuthorLastNameStartsWith(start);
+        books.forEach(b-> System.out.printf("%s (%s %s)%n",b.getTitle(),b.getAuthor().getFirstName(),b.getAuthor().getLastName()));
+        return books;
+    }
+
+    @Override
+    public int getCountOfBooksWithTitleLongerThan(int length) {
+        int count = this.bookRepository.findAllByTitleLengthGreaterThan(length).size();
+        System.out.println(count);
+        return count;
+    }
 }

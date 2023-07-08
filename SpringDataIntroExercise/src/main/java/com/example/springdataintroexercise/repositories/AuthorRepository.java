@@ -12,4 +12,5 @@ import java.util.Set;
 public interface AuthorRepository extends JpaRepository<Author, Integer> {
     @Query("SELECT a FROM Author a ORDER BY size(a.booksList) DESC")
     Set<Author> findAllOrderByBooksDesc();
+    Set<Author> findAllByFirstNameEndingWith(String end);
 }

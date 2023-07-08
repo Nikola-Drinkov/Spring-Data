@@ -26,17 +26,38 @@ public class ConsoleRunner implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
 
+        //EXERCISE SPRING DATA INTRO
         //this.seedService.seedAllData();
-
         //1
-        this.bookService.getAllBooksAfter2000();
+        //this.bookService.getAllBooksAfter2000();
         //2
-        this.authorService.getAuthorsWithBooksBefore1990();
+        //this.authorService.getAuthorsWithBooksBefore1990();
         //3
-        this.authorService.getAuthorsOrderedByBooks();
+        //this.authorService.getAuthorsOrderedByBooks();
         //4
-        this.bookService.getAllBooksFromGeorgePowell();
+        //this.bookService.getAllBooksFromGeorgePowell();
 
+
+        //EXERCISE ADVANCED QUERYING
+        //1
+        //this.bookService.getAllBooksByAgeRestriction(sc.nextLine());
+        //2
+        //this.bookService.getAllBooksByEditionTypeGoldAndLessThan5000Copies();
+        //3
+        //this.bookService.getAllBooksByPriceLessThan5OrPriceMoreThan40();
+        //4
+        //this.bookService.getAllBooksNotReleasedInYear(Integer.parseInt(sc.nextLine()));
+        //5
+        //this.bookService.getAllBooksBeforeDate(sc.nextLine());
+        //6
+        //this.authorService.getAuthorsWhoseFirstNameEndsWithString(sc.nextLine());
+        //7
+        //this.bookService.getAllBooksContainingString(sc.nextLine());
+        //8
+        //this.bookService.getAllBooksWithAuthorLastNameStartingWith(sc.nextLine());
+        //9
+        //this.bookService.getCountOfBooksWithTitleLongerThan(Integer.parseInt(sc.nextLine()));
+        //10
 
     }
 }
