@@ -1,5 +1,6 @@
 package com.example.springdataintroexercise.repositories;
 
+import com.example.springdataintroexercise.entitites.Author;
 import com.example.springdataintroexercise.entitites.Book;
 import com.example.springdataintroexercise.enums.AgeRestriction;
 import com.example.springdataintroexercise.enums.EditionType;
@@ -13,6 +14,7 @@ import java.util.List;
 
 @Repository
 public interface BookRepository extends JpaRepository<Book, Integer> {
+    Book findByTitle(String title);
     List<Book> findAllByReleaseDateAfter(LocalDate date);
     List<Book> findAllByReleaseDateBefore(LocalDate date);
     List<Book> findAllByAuthorFirstNameAndAuthorLastNameOrderByReleaseDateDescTitleAsc(String firstName, String LastName);
@@ -25,5 +27,6 @@ public interface BookRepository extends JpaRepository<Book, Integer> {
     List<Book> findAllByAuthorLastNameStartsWith(String start);
     @Query("SELECT b FROM Book b WHERE LENGTH(b.title) > :length")
     List<Book> findAllByTitleLengthGreaterThan(int length);
-
+    @Query("SELECT SUM(b.copies) FROM Book b WHERE b.author = :author")
+    int findTotalCopiesOfBooksForAuthor(Author author);
 }

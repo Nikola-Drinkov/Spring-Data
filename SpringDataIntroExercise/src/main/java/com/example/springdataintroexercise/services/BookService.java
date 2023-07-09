@@ -1,7 +1,8 @@
 package com.example.springdataintroexercise.services;
 
+import com.example.springdataintroexercise.entitites.Author;
 import com.example.springdataintroexercise.entitites.Book;
-import com.example.springdataintroexercise.enums.EditionType;
+import com.example.springdataintroexercise.models.BookDTO;
 
 import java.util.List;
 
@@ -20,4 +21,6 @@ public interface BookService {
     List<Book> getAllBooksContainingString(String containing);
     List<Book> getAllBooksWithAuthorLastNameStartingWith(String start);
     int getCountOfBooksWithTitleLongerThan(int length);
+    int getTotalCopiesOfBooksForAuthor(Author author);
+    BookDTO getBookDTO(String title);
 }

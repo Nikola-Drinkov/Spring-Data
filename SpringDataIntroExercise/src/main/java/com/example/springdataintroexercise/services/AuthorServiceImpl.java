@@ -5,10 +5,7 @@ import com.example.springdataintroexercise.entitites.Book;
 import com.example.springdataintroexercise.repositories.AuthorRepository;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
-import java.util.NoSuchElementException;
-import java.util.Random;
-import java.util.Set;
+import java.util.*;
 import java.util.stream.Collectors;
 
 @Service
@@ -63,5 +60,27 @@ public class AuthorServiceImpl implements AuthorService {
         Set<Author> authors = this.authorRepository.findAllByFirstNameEndingWith(end);
         authors.forEach(a-> System.out.println(a.getFirstName()+" "+a.getLastName()));
         return authors;
+    }
+
+    @Override
+    public void printAuthorsWithTotalCopiesOfBooks() {
+        List<Author> authors = authorRepository.findAll();
+        HashMap<String, Integer> authorsCopiesMap = new HashMap<>();
+        for(Author author : authors){
+            authorsCopiesMap.put(author.getFirstName()+" "+author.getLastName(), this.bookService.getTotalCopiesOfBooksForAuthor(author));
+        }
+
+        List<Map.Entry<String, Integer>> entriesList = new ArrayList<>(authorsCopiesMap.entrySet());
+        entriesList.sort((entry1, entry2)->entry2.getValue().compareTo(entry1.getValue()));
+
+        LinkedHashMap<String, Integer> sortedAuthorsCopiesMap = new LinkedHashMap<>();
+        for(Map.Entry<String, Integer> entry:entriesList){
+            sortedAuthorsCopiesMap.put(entry.getKey(), entry.getValue());
+        }
+
+        for (Map.Entry<String, Integer> entry : sortedAuthorsCopiesMap.entrySet()) {
+            System.out.println(entry.getKey()+" - "+entry.getValue());
+        }
+
     }
 }

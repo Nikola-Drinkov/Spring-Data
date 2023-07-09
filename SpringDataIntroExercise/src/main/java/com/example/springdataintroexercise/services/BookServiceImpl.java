@@ -1,13 +1,16 @@
 package com.example.springdataintroexercise.services;
 
+import com.example.springdataintroexercise.entitites.Author;
 import com.example.springdataintroexercise.entitites.Book;
 import com.example.springdataintroexercise.enums.AgeRestriction;
 import com.example.springdataintroexercise.enums.EditionType;
+import com.example.springdataintroexercise.models.BookDTO;
 import com.example.springdataintroexercise.repositories.BookRepository;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -104,5 +107,18 @@ public class BookServiceImpl implements BookService {
         int count = this.bookRepository.findAllByTitleLengthGreaterThan(length).size();
         System.out.println(count);
         return count;
+    }
+
+    @Override
+    public int getTotalCopiesOfBooksForAuthor(Author author) {
+        return this.bookRepository.findTotalCopiesOfBooksForAuthor(author);
+    }
+
+    @Override
+    public BookDTO getBookDTO(String title) {
+        Book book = this.bookRepository.findByTitle(title);
+        BookDTO bookDTO = new BookDTO(book.getTitle(),book.getEditionType().toString(),book.getAgeRestriction().toString(),book.getPrice());
+        System.out.println(bookDTO);
+        return bookDTO;
     }
 }

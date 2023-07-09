@@ -58,6 +58,10 @@ public class ConsoleRunner implements CommandLineRunner {
         //9
         //this.bookService.getCountOfBooksWithTitleLongerThan(Integer.parseInt(sc.nextLine()));
         //10
+        //this.authorService.printAuthorsWithTotalCopiesOfBooks();
+        //11
+        //this.bookService.getBookDTO(sc.nextLine());
+        //12
 
     }
 }
