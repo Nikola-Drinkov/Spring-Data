@@ -23,4 +23,6 @@ public interface BookService {
     int getCountOfBooksWithTitleLongerThan(int length);
     int getTotalCopiesOfBooksForAuthor(Author author);
     BookDTO getBookDTO(String title);
+    void increaseCopiesForBooksAfterDate(String date, int copies);
+    void removeBooksWithCopiesLessThan(int copies);
 }

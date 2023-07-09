@@ -4,7 +4,9 @@ import com.example.springdataintroexercise.entitites.Author;
 import com.example.springdataintroexercise.entitites.Book;
 import com.example.springdataintroexercise.enums.AgeRestriction;
 import com.example.springdataintroexercise.enums.EditionType;
+import jakarta.transaction.Transactional;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
@@ -29,4 +31,7 @@ public interface BookRepository extends JpaRepository<Book, Integer> {
     List<Book> findAllByTitleLengthGreaterThan(int length);
     @Query("SELECT SUM(b.copies) FROM Book b WHERE b.author = :author")
     int findTotalCopiesOfBooksForAuthor(Author author);
+    @Transactional
+    @Modifying
+    int removeAllByCopiesLessThan(int copies);
 }

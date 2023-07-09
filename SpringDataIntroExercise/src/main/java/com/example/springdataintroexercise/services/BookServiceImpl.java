@@ -10,9 +10,10 @@ import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
-import java.util.ArrayList;
+import java.time.format.DateTimeFormatter;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Locale;
 
 @Service
 public class BookServiceImpl implements BookService {
@@ -120,5 +121,26 @@ public class BookServiceImpl implements BookService {
         BookDTO bookDTO = new BookDTO(book.getTitle(),book.getEditionType().toString(),book.getAgeRestriction().toString(),book.getPrice());
         System.out.println(bookDTO);
         return bookDTO;
+    }
+
+    @Override
+    public void increaseCopiesForBooksAfterDate(String date, int copies) {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd MMM yyyy", Locale.ENGLISH);
+        LocalDate localDate = LocalDate.parse(date,formatter);
+
+        List<Book> books = this.bookRepository.findAllByReleaseDateAfter(localDate);
+        for(Book book:books){
+            book.setCopies(book.getCopies()+copies);
+        }
+        this.bookRepository.saveAll(books);
+        this.bookRepository.flush();
+
+        int addedCopies = books.size()*copies;
+        System.out.println(addedCopies);
+    }
+
+    @Override
+    public void removeBooksWithCopiesLessThan(int copies) {
+        System.out.println(this.bookRepository.removeAllByCopiesLessThan(copies));
     }
 }

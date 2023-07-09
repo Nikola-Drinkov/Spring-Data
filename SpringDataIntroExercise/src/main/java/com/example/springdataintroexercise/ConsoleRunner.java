@@ -62,6 +62,8 @@ public class ConsoleRunner implements CommandLineRunner {
         //11
         //this.bookService.getBookDTO(sc.nextLine());
         //12
-
+        //this.bookService.increaseCopiesForBooksAfterDate(sc.nextLine(), Integer.parseInt(sc.nextLine()));
+        //13
+        this.bookService.removeBooksWithCopiesLessThan(Integer.parseInt(sc.nextLine()));
     }
 }
