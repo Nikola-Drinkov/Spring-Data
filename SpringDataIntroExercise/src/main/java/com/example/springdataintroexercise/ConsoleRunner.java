@@ -64,6 +64,8 @@ public class ConsoleRunner implements CommandLineRunner {
         //12
         //this.bookService.increaseCopiesForBooksAfterDate(sc.nextLine(), Integer.parseInt(sc.nextLine()));
         //13
-        this.bookService.removeBooksWithCopiesLessThan(Integer.parseInt(sc.nextLine()));
+        //this.bookService.removeBooksWithCopiesLessThan(Integer.parseInt(sc.nextLine()));
+        //14
+        //this.authorService.printAuthorWithTheirTotalBooks(sc.nextLine());
     }
 }

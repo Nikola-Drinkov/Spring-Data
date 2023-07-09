@@ -13,4 +13,5 @@ public interface AuthorService {
     Set<Author> getAuthorsOrderedByBooks();
     Set<Author> getAuthorsWhoseFirstNameEndsWithString(String end);
     void printAuthorsWithTotalCopiesOfBooks();
+    void printAuthorWithTheirTotalBooks(String fullName);
 }

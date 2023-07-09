@@ -77,10 +77,14 @@ public class AuthorServiceImpl implements AuthorService {
         for(Map.Entry<String, Integer> entry:entriesList){
             sortedAuthorsCopiesMap.put(entry.getKey(), entry.getValue());
         }
-
         for (Map.Entry<String, Integer> entry : sortedAuthorsCopiesMap.entrySet()) {
             System.out.println(entry.getKey()+" - "+entry.getValue());
         }
 
+    }
+    @Override
+    public void printAuthorWithTheirTotalBooks(String fullName) {
+        int countOfBooks = authorRepository.findAllBooksByGivenAuthor(fullName);
+        System.out.printf("%s has written %d books%n",fullName,countOfBooks);
     }
 }
