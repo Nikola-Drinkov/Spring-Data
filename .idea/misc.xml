@@ -21,6 +21,8 @@
         <option value="$PROJECT_DIR$/SpringDataIntro/pom.xml" />
         <option value="$PROJECT_DIR$/SpringDataIntroExercise/pom.xml" />
         <option value="$PROJECT_DIR$/HibernateIntroExercise/pom.xml" />
+        <option value="$PROJECT_DIR$/SpringDataAutoMapping/pom.xml" />
+        <option value="$PROJECT_DIR$/SpringDataAutoMappingExercise/pom.xml" />
       </list>
     </option>
     <option name="ignoredFiles">
