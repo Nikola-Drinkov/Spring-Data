@@ -35,6 +35,8 @@ public class ConsoleRunner implements CommandLineRunner {
                 case ADD_GAME -> this.gameService.addGame(inputParts);
                 case EDIT_GAME -> this.gameService.editGame(inputParts);
                 case DELETE_GAME -> this.gameService.deleteGame(inputParts);
+                case VIEW_ALL_GAMES -> this.gameService.viewAllGames();
+                case VIEW_DETAIL_GAME -> this.gameService.viewDetailGame(inputParts);
                 default -> throw new Exception();
             };
 

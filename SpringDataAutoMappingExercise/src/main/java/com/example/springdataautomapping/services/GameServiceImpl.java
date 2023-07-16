@@ -2,7 +2,9 @@ package com.example.springdataautomapping.services;
 
 import com.example.springdataautomapping.domain.entities.Game;
 import com.example.springdataautomapping.domain.models.AddGameDTO;
+import com.example.springdataautomapping.domain.models.DetailedGameDTO;
 import com.example.springdataautomapping.domain.models.EditGameDTO;
+import com.example.springdataautomapping.domain.models.GameTitleAndPriceDTO;
 import com.example.springdataautomapping.repositories.GameRepository;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
@@ -10,6 +12,7 @@ import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
@@ -88,5 +91,33 @@ public class GameServiceImpl implements GameService {
 
         this.gameRepository.delete(gameToDelete.get());
         return String.format(SUCCESSFUL_GAME_DELETE, gameToDelete.get().getTitle());
+    }
+
+    @Override
+    public String viewAllGames() {
+        if(this.gameRepository.count()==0) return NO_GAMES_ADDED;
+
+        StringBuilder view = new StringBuilder();
+        List<Game> games = this.gameRepository.findAll();
+        games.forEach(game->{
+            GameTitleAndPriceDTO gameTitleAndPriceDTO = modelMapper.map(game, GameTitleAndPriceDTO.class);
+            view.append(gameTitleAndPriceDTO.toString()).append(System.lineSeparator());
+        });
+        return view.toString();
+    }
+
+    @Override
+    public String viewDetailGame(String[] args) {
+        if(this.gameRepository.count()==0) return NO_GAMES_ADDED;
+
+        Optional<Game> game = this.gameRepository.findByTitle(args[1]);
+        DetailedGameDTO detailedGameDTO = modelMapper.map(game, DetailedGameDTO.class);
+        return detailedGameDTO.toString();
+    }
+
+    @Override
+    public String viewOwnedGames() {
+        //part of task 5
+        return null;
     }
 }
