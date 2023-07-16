@@ -5,6 +5,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import jakarta.validation.constraints.Min;
 import java.util.Set;
 
 @Getter
@@ -16,7 +17,8 @@ public class User extends BaseEntity{
     @Column
     private String firstName;
 
-    @Column(nullable = false,length = 3)
+    @Min(3)
+    @Column(nullable = false)
     private String lastName;
 
     @Column
