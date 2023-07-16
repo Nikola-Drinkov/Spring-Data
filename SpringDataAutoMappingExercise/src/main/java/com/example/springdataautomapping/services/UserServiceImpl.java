@@ -89,5 +89,8 @@ public class UserServiceImpl implements UserService {
 
     }
 
-
+    @Override
+    public Boolean isLoggedAdmin() {
+        return this.loggedInUser!=null && loggedInUser.getIsAdmin();
+    }
 }

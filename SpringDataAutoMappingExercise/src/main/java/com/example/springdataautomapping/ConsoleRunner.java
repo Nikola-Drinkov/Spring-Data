@@ -33,6 +33,8 @@ public class ConsoleRunner implements CommandLineRunner {
                 case LOGIN_USER -> this.userService.loginUser(inputParts);
                 case LOGOUT_USER -> this.userService.logout();
                 case ADD_GAME -> this.gameService.addGame(inputParts);
+                case EDIT_GAME -> this.gameService.editGame(inputParts);
+                case DELETE_GAME -> this.gameService.deleteGame(inputParts);
                 default -> throw new Exception();
             };
 
