@@ -7,17 +7,23 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="JSON_Exercise" />
         <module name="introtohibernate (7)" />
-        <module name="introtohibernate (5)" />
         <module name="SpringDataIntro" />
-        <module name="introtohibernate (6)" />
+        <module name="SpringDataIntroExercise" />
+        <module name="JSON_Exercise (2)" />
+        <module name="JSON_Exercise (1)" />
+        <module name="SpringDataAutoMappingExercise" />
+      </profile>
+      <profile name="Annotation profile for introtohibernate" enabled="true">
+        <sourceOutputDir name="../../target/generated-sources/annotations" />
+        <sourceTestOutputDir name="../../target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
         <module name="introtohibernate (3)" />
         <module name="introtohibernate (4)" />
-        <module name="SpringDataIntroExercise" />
         <module name="introtohibernate (1)" />
         <module name="introtohibernate (2)" />
-        <module name="SpringDataAutoMappingExercise" />
+        <module name="introtohibernate (5)" />
+        <module name="introtohibernate (6)" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -31,6 +37,7 @@
       <module name="HibernateIntroExercise" target="1.8" />
       <module name="HospitalDatabase" target="18" />
       <module name="introtohibernate" target="1.8" />
+      <module name="JSON_Exercise" target="17" />
       <module name="SalesDB" target="18" />
       <module name="UniversitySystem" target="18" />
     </bytecodeTargetLevel>
@@ -38,6 +45,8 @@
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="JSON_Exercise" options="-parameters" />
+      <module name="JSON_Exercise (1)" options="-parameters" />
+      <module name="JSON_Exercise (2)" options="-parameters" />
       <module name="SpringDataAutoMappingExercise" options="-parameters" />
       <module name="SpringDataIntro" options="-parameters" />
       <module name="SpringDataIntroExercise" options="-parameters" />
