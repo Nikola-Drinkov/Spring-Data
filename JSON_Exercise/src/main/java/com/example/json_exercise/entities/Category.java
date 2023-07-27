@@ -1,13 +1,13 @@
 package com.example.json_exercise.entities;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.List;
 import java.util.Objects;
+import java.util.Set;
 
 @Getter
 @Setter
@@ -18,6 +18,9 @@ public class Category extends BaseEntity {
 
     @Column(nullable = false, length = 15)
     private String name;
+
+    @ManyToMany(targetEntity = Product.class, mappedBy = "categories", fetch = FetchType.EAGER)
+    private Set<Product> products;
 
     @Override
     public boolean equals(Object o) {

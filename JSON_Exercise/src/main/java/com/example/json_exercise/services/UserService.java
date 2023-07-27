@@ -7,4 +7,5 @@ import java.util.List;
 
 public interface UserService {
     List<User> getAllBySoldProducts() throws IOException;
+    List<User> getAllWithAtLeastOneSold() throws IOException;
 }
